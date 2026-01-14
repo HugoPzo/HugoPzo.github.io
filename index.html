@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugo Perez Ortiz - Mi Portafolio</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+</head>
+<body class="bg-white dark:bg-black text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Navegación -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-black/80 backdrop-blur-md shadow-sm dark:shadow-gray-900/50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#inicio" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent animate-fade-in">
+                    Hugo Pérez Ortiz
+                </a>
+                <div class="flex items-center space-x-4">
+                    <!-- Toggle Dark Mode -->
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-zinc-900 hover:bg-gray-300 dark:hover:bg-zinc-800 transition-all duration-300 transform hover:scale-110 border border-gray-300 dark:border-zinc-700">
+                        <svg class="w-5 h-5 dark:hidden text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                        <svg class="w-5 h-5 hidden dark:inline text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-gray-200 dark:bg-zinc-900 border border-gray-300 dark:border-zinc-700">
+                        <i class="fas fa-bars text-gray-800 dark:text-gray-100"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="#inicio" class="block py-2 nav-link flex items-center space-x-2">
+                    <i class="fas fa-home w-5"></i>
+                    <span>Inicio</span>
+                </a>
+                <a href="#sobre-mi" class="block py-2 nav-link flex items-center space-x-2">
+                    <i class="fas fa-user w-5"></i>
+                    <span>Sobre Mí</span>
+                </a>
+                <a href="#proyectos" class="block py-2 nav-link flex items-center space-x-2">
+                    <i class="fas fa-briefcase w-5"></i>
+                    <span>Proyectos</span>
+                </a>
+                <a href="#habilidades" class="block py-2 nav-link flex items-center space-x-2">
+                    <i class="fas fa-code w-5"></i>
+                    <span>Habilidades</span>
+                </a>
+                <a href="#contacto" class="block py-2 nav-link flex items-center space-x-2">
+                    <i class="fas fa-envelope w-5"></i>
+                    <span>Contacto</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden lg:block">
+        <nav class="bg-white/80 dark:bg-black/80 backdrop-blur-md rounded-r-2xl shadow-lg dark:shadow-zinc-900/50 border-r border-gray-200 dark:border-zinc-800 py-6 px-3">
+            <div class="flex flex-col space-y-6">
+                <a href="#inicio" class="sidebar-link group flex flex-col items-center justify-center p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-zinc-900 transition-all duration-300 relative" title="Inicio">
+                    <i class="fas fa-home text-xl text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"></i>
+                    <span class="text-xs mt-1 text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors font-medium">Inicio</span>
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-600 dark:bg-blue-400 rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </a>
+                <a href="#sobre-mi" class="sidebar-link group flex flex-col items-center justify-center p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-zinc-900 transition-all duration-300 relative" title="Sobre Mí">
+                    <i class="fas fa-user text-xl text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"></i>
+                    <span class="text-xs mt-1 text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors font-medium">Sobre Mí</span>
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-600 dark:bg-blue-400 rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </a>
+                <a href="#proyectos" class="sidebar-link group flex flex-col items-center justify-center p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-zinc-900 transition-all duration-300 relative" title="Proyectos">
+                    <i class="fas fa-briefcase text-xl text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"></i>
+                    <span class="text-xs mt-1 text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors font-medium">Proyectos</span>
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-600 dark:bg-blue-400 rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </a>
+                <a href="#habilidades" class="sidebar-link group flex flex-col items-center justify-center p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-zinc-900 transition-all duration-300 relative" title="Habilidades">
+                    <i class="fas fa-code text-xl text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"></i>
+                    <span class="text-xs mt-1 text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors font-medium">Habilidades</span>
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-600 dark:bg-blue-400 rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </a>
+                <a href="#contacto" class="sidebar-link group flex flex-col items-center justify-center p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-zinc-900 transition-all duration-300 relative" title="Contacto">
+                    <i class="fas fa-envelope text-xl text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"></i>
+                    <span class="text-xs mt-1 text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors font-medium">Contacto</span>
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-600 dark:bg-blue-400 rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </a>
+            </div>
+        </nav>
+    </aside>
+
+    <!-- Sección Hero -->
+    <section id="inicio" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <!-- Fondo animado con gradiente -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950"></div>
+        <div class="absolute inset-0 animated-gradient-bg"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/50 dark:to-black/30"></div>
+        
+        <!-- Elementos decorativos flotantes -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/20 dark:bg-purple-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pink-400/20 dark:bg-pink-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 2s;"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center animate-fade-in-up">
+                <!-- Foto de perfil mejorada -->
+                <div class="mb-8 animate-bounce-slow">
+                    <div class="relative inline-block">
+                        <div class="w-40 h-40 md:w-48 md:h-48 mx-auto rounded-full bg-gradient-to-br from-blue-500 via-purple-600 to-pink-600 p-1.5 shadow-2xl dark:shadow-blue-500/30 animate-pulse-slow">
+                            <div class="w-full h-full rounded-full bg-white dark:bg-zinc-950 flex items-center justify-center overflow-hidden border-2 border-white/50 dark:border-zinc-800 relative">
+                                <img src="img/FotoAllianzHugo.jpeg" alt="Hugo Pérez Ortiz" class="w-full h-full object-cover rounded-full">
+                                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-full"></div>
+                            </div>
+                        </div>
+                        <!-- Anillo decorativo -->
+                        <div class="absolute -inset-4 rounded-full border-2 border-blue-400/30 dark:border-blue-500/20 animate-spin-slow"></div>
+                    </div>
+                </div>
+                
+                <!-- Título mejorado -->
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient leading-tight">
+                    Hola, soy<br>
+                    <span class="typing-text block mt-2"></span>
+                </h1>
+                <!-- Subtítulo mejorado -->
+                <p class="text-2xl md:text-3xl text-gray-700 dark:text-gray-200 mb-4 animate-fade-in-delay font-medium">                                                                                    
+                    Universitario, Software Developer
+                </p>
+                <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-10 animate-fade-in-delay">
+                    & Future Data Scientist
+                </p>
+                
+                <!-- Botones mejorados -->
+                <div class="flex flex-wrap justify-center gap-6 animate-fade-in-delay-2">
+                    <a href="#contacto" class="group relative px-10 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-2xl transform hover:scale-110 transition-all duration-300 hover:from-blue-700 hover:to-purple-700 overflow-hidden">
+                        <span class="relative z-10 flex items-center space-x-2">
+                            <span>Contáctame</span>
+                            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </a>
+                    <a href="#proyectos" class="px-10 py-4 border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 rounded-full font-semibold hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white transform hover:scale-110 transition-all duration-300 backdrop-blur-sm bg-white/50 dark:bg-black/50">
+                        Ver Proyectos
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator mejorado -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="flex flex-col items-center space-y-2">
+                <span class="text-sm text-gray-500 dark:text-gray-400 font-medium">Scroll</span>
+                <div class="w-6 h-10 border-2 border-gray-400 dark:border-gray-500 rounded-full flex items-start justify-center p-2">
+                    <div class="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section id="sobre-mi" class="py-24 bg-white dark:bg-black transition-colors duration-300">
+        <div class="container mx-auto px-6 lg:px-12">
+            <!-- Título Mejorado -->
+            <div class="text-center mb-16">
+                <div class="inline-block mb-4">
+                    <span class="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
+                        Sobre Mí
+                    </span>
+                </div>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+                <p class="text-gray-600 dark:text-gray-400 mt-4 text-lg">Conoce más sobre mi trayectoria y experiencia</p>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 rounded-3xl p-10 md:p-12 lg:p-16 shadow-2xl dark:shadow-zinc-900/50 hover:shadow-3xl dark:hover:shadow-zinc-900/70 transition-all duration-500 border-2 border-blue-100 dark:border-zinc-800 relative overflow-hidden">
+                    <!-- Elemento decorativo de fondo -->
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-200/20 to-purple-200/20 dark:from-blue-500/10 dark:to-purple-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+                    <div class="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-pink-200/20 to-purple-200/20 dark:from-pink-500/10 dark:to-purple-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="space-y-8">
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
+                                    <i class="fas fa-user-graduate text-white text-lg"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Formación y Pasiones</h3>
+                                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                                        Soy estudiante de Ingeniería en Computación, actualmente por cursar el octavo semestre, con una fuerte pasión por la tecnología, las finanzas y los deportes. Me considero una persona autodidacta, disciplinada y con una constante hambre por aprender, siempre en búsqueda de nuevos retos y conocimientos que me permitan crecer tanto a nivel personal como profesional.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center">
+                                    <i class="fas fa-globe-americas text-white text-lg"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Intereses e Idiomas</h3>
+                                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                                        En mi tiempo libre disfruto hacer ejercicio, leer y viajar, actividades que me ayudan a mantener un equilibrio entre el desarrollo intelectual y el bienestar físico. Cuento con un nivel B2 de inglés y A1 en francés y alemán, lo que me permite desenvolverme en entornos técnicos y académicos internacionales.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-cyan-600 flex items-center justify-center">
+                                    <i class="fas fa-briefcase text-white text-lg"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Experiencia Laboral</h3>
+                                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                                        A nivel laboral, he trabajado en la empresa familiar Madcom S.A. de C.V., donde me desempeñé como Administrador de TI, brindando soporte técnico al equipo de la empresa y dando mantenimiento al sitio web corporativo <a href="https://madcom.com.mx" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-semibold transition-colors underline decoration-2 underline-offset-2"><strong>madcom.com.mx</strong></a>. Actualmente, me encuentro desarrollando el portal web de la empresa, utilizando tecnologías como Django, Docker, Tailwind CSS y Nginx, fortaleciendo mis habilidades en desarrollo web y despliegue de aplicaciones.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 flex items-center justify-center">
+                                    <i class="fas fa-brain text-white text-lg"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Habilidades Blandas</h3>
+                                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                                        En cuanto a mis habilidades blandas, me caracterizo por ser una persona abierta al aprendizaje, con una actitud proactiva, que se comunica de forma clara y respetuosa, disfruta el trabajo en equipo y tiene facilidad para adaptarse a nuevos entornos y tecnologías. También destaco por mi responsabilidad, organización, pensamiento crítico y capacidad para resolver problemas, incluso bajo presión.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-pink-500 to-red-600 flex items-center justify-center">
+                                    <i class="fas fa-rocket text-white text-lg"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Objetivos Futuros</h3>
+                                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                                        Mi objetivo a futuro es concluir mi licenciatura, realizar una maestría, especializarme en Ciencia de Datos e Inteligencia Artificial, cursar un posgrado en el extranjero y seguir aprendiendo de forma constante para aportar soluciones innovadoras en el ámbito tecnológico.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="proyectos" class="py-24 bg-gray-50 dark:bg-zinc-950 transition-colors duration-300">
+        <div class="container mx-auto px-6 lg:px-12">
+            <!-- Título Mejorado -->
+            <div class="text-center mb-16">
+                <div class="inline-block mb-4">
+                    <span class="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
+                        Proyectos
+                    </span>
+                </div>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+                <p class="text-gray-600 dark:text-gray-400 mt-4 text-lg">Algunos de mis trabajos y desarrollos recientes</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+                <!-- Proyecto 1 -->
+                <div class="project-card group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden shadow-xl dark:shadow-zinc-900/50 hover:shadow-2xl dark:hover:shadow-zinc-900/70 transition-all duration-500 transform hover:-translate-y-3 border-2 border-gray-200 dark:border-zinc-800 relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-600/10 dark:from-blue-500/5 dark:to-purple-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="h-56 bg-gradient-to-br from-blue-500 via-blue-600 to-purple-600 dark:from-blue-600 dark:via-purple-600 dark:to-purple-700 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/10 dark:bg-black/20"></div>
+                        <i class="fas fa-laptop-code text-7xl text-white opacity-90 relative z-10 group-hover:scale-110 transition-transform duration-500"></i>
+                        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                    </div>
+                    <div class="p-7 relative z-10">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-2xl font-bold text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">Portal Web Madcom</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-5 leading-relaxed">
+                            Desarrollo de un portal empresarial para la gestión de servicios internos, usuarios y procesos operativos de la empresa.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-800">Python</span>
+                            <span class="px-3 py-1.5 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 rounded-full text-sm font-medium border border-green-200 dark:border-green-800">Django</span>
+                            <span class="px-3 py-1.5 bg-cyan-100 dark:bg-cyan-900/50 text-cyan-800 dark:text-cyan-200 rounded-full text-sm font-medium border border-cyan-200 dark:border-cyan-800">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2 -->
+                <div class="project-card group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden shadow-xl dark:shadow-zinc-900/50 hover:shadow-2xl dark:hover:shadow-zinc-900/70 transition-all duration-500 transform hover:-translate-y-3 border-2 border-gray-200 dark:border-zinc-800 relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-600/10 dark:from-purple-500/5 dark:to-pink-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="h-56 bg-gradient-to-br from-purple-500 via-purple-600 to-pink-600 dark:from-purple-600 dark:via-pink-600 dark:to-pink-700 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/10 dark:bg-black/20"></div>
+                        <i class="fas fa-mobile-alt text-7xl text-white opacity-90 relative z-10 group-hover:scale-110 transition-transform duration-500"></i>
+                        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                    </div>
+                    <div class="p-7 relative z-10">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-2xl font-bold text-purple-600 dark:text-purple-400 group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors">Connect Sphere</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-5 leading-relaxed">
+                            Aplicación Android para la gestión de contactos, permitiendo registrar, editar y organizar información telefónica y personal.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1.5 bg-purple-100 dark:bg-purple-900/50 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium border border-purple-200 dark:border-purple-800">Jetpack Compose</span>
+                            <span class="px-3 py-1.5 bg-orange-100 dark:bg-orange-900/50 text-orange-800 dark:text-orange-200 rounded-full text-sm font-medium border border-orange-200 dark:border-orange-800">Kotlin</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/HugoPzo/Connect-Sphere" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-4 py-2 bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 rounded-lg hover:bg-purple-200 dark:hover:bg-purple-800/50 transition-all duration-300 group/link">
+                                <i class="fab fa-github text-lg"></i>
+                                <span class="text-sm font-medium">Ver código</span>
+                                <i class="fas fa-external-link-alt text-xs opacity-0 group-hover/link:opacity-100 transition-opacity"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3 -->
+                <div class="project-card group bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden shadow-xl dark:shadow-zinc-900/50 hover:shadow-2xl dark:hover:shadow-zinc-900/70 transition-all duration-500 transform hover:-translate-y-3 border-2 border-gray-200 dark:border-zinc-800 relative">
+                    <div class="absolute inset-0 bg-gradient-to-br from-pink-500/10 to-red-600/10 dark:from-pink-500/5 dark:to-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="h-56 bg-gradient-to-br from-pink-500 via-pink-600 to-red-600 dark:from-pink-600 dark:via-red-600 dark:to-red-700 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/10 dark:bg-black/20"></div>
+                        <i class="fas fa-globe text-7xl text-white opacity-90 relative z-10 group-hover:scale-110 transition-transform duration-500"></i>
+                        <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                    </div>
+                    <div class="p-7 relative z-10">
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-2xl font-bold text-pink-600 dark:text-pink-400 group-hover:text-pink-700 dark:group-hover:text-pink-300 transition-colors">Tienda de Videojuegos</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-5 leading-relaxed">
+                            Proyecto escolar en equipo para crear una tienda en línea de videojuegos; participé en el despliegue en red, diseño frontend y desarrollo del backend API.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1.5 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 rounded-full text-sm font-medium border border-green-200 dark:border-green-800">Node JS</span>
+                            <span class="px-3 py-1.5 bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-200 rounded-full text-sm font-medium border border-yellow-200 dark:border-yellow-800">Javascript</span>
+                            <span class="px-3 py-1.5 bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium border border-blue-200 dark:border-blue-800">MySql</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/HugoPzo/app_videojuegos" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 px-4 py-2 bg-pink-100 dark:bg-pink-900/50 text-pink-700 dark:text-pink-300 rounded-lg hover:bg-pink-200 dark:hover:bg-pink-800/50 transition-all duration-300 group/link">
+                                <i class="fab fa-github text-lg"></i>
+                                <span class="text-sm font-medium">Ver código</span>
+                                <i class="fas fa-external-link-alt text-xs opacity-0 group-hover/link:opacity-100 transition-opacity"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Habilidades -->
+    <section id="habilidades" class="py-24 bg-white dark:bg-black transition-colors duration-300">
+        <div class="container mx-auto px-6 lg:px-12">
+            <!-- Título Mejorado -->
+            <div class="text-center mb-16">
+                <div class="inline-block mb-4">
+                    <span class="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
+                        Habilidades
+                    </span>
+                </div>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+                <p class="text-gray-600 dark:text-gray-400 mt-4 text-lg">Tecnologías y herramientas que domino</p>
+            </div>
+            
+            <div class="max-w-7xl mx-auto relative">
+                <!-- Carrusel Container -->
+                <div class="skills-carousel overflow-hidden relative">
+                    <div id="skills-track" class="flex">
+                        <!-- SQL -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-blue-100 dark:border-zinc-800">
+                            <i class="devicon-mysql-plain colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">SQL</h3>
+                        </div>
+                        <!-- Postgres -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-blue-100 dark:border-zinc-800">
+                            <i class="devicon-postgresql-plain colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Postgres</h3>
+                        </div>
+                        <!-- Python -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-yellow-100 dark:border-zinc-800">
+                            <i class="devicon-python-plain colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Python</h3>
+                        </div>
+                        <!-- Pandas -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-green-50 to-green-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-green-100 dark:border-zinc-800">
+                            <i class="devicon-pandas-original colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Pandas</h3>
+                        </div>
+                        <!-- NumPy -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-blue-100 dark:border-zinc-800">
+                            <i class="devicon-numpy-original colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">NumPy</h3>
+                        </div>
+                        <!-- Django -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-green-50 to-emerald-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-green-100 dark:border-zinc-800">
+                            <i class="devicon-django-plain colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Django</h3>
+                        </div>
+                        <!-- Git -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-orange-50 to-orange-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-orange-100 dark:border-zinc-800">
+                            <i class="devicon-git-plain colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Git</h3>
+                        </div>
+                        <!-- GitHub -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-gray-200 dark:border-zinc-800">
+                            <i class="devicon-github-original colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">GitHub</h3>
+                        </div>
+                        <!-- NodeJS -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-green-50 to-green-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-green-100 dark:border-zinc-800">
+                            <i class="devicon-nodejs-plain colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">NodeJS</h3>
+                        </div>
+                        <!-- HTML -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-orange-50 to-orange-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-orange-100 dark:border-zinc-800">
+                            <i class="devicon-html5-plain colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">HTML</h3>
+                        </div>
+                        <!-- CSS -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-blue-100 dark:border-zinc-800">
+                            <i class="devicon-css3-plain colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">CSS</h3>
+                        </div>
+                        <!-- Tailwind -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-cyan-100 dark:border-zinc-800">
+                            <i class="devicon-tailwindcss-plain colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Tailwind</h3>
+                        </div>
+                        <!-- Nginx -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-green-50 to-green-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-green-100 dark:border-zinc-800">
+                            <i class="devicon-nginx-original colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Nginx</h3>
+                        </div>
+                        <!-- JavaScript -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-yellow-100 dark:border-zinc-800">
+                            <i class="devicon-javascript-plain colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">JavaScript</h3>
+                        </div>
+                        <!-- Java -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-red-50 to-red-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-red-100 dark:border-zinc-800">
+                            <i class="devicon-java-plain colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Java</h3>
+                        </div>
+                        <!-- Spring Boot -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-green-50 to-green-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-green-100 dark:border-zinc-800">
+                            <i class="devicon-spring-original colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Spring Boot</h3>
+                        </div>
+                        <!-- Kotlin -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-purple-100 dark:border-zinc-800">
+                            <i class="devicon-kotlin-plain colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Kotlin</h3>
+                        </div>
+                        <!-- Android -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-green-50 to-emerald-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-green-100 dark:border-zinc-800">
+                            <i class="devicon-android-plain colored text-6xl mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Android</h3>
+                        </div>
+                        <!-- Gemini IA -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-orange-50 to-amber-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-orange-100 dark:border-zinc-800">
+                            <svg class="w-16 h-16 mx-auto mb-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" fill="url(#gemini-gradient)" opacity="0.1"/>
+                                <path d="M12 2L14.5 8.5L21 11L14.5 13.5L12 20L9.5 13.5L3 11L9.5 8.5L12 2Z" fill="url(#gemini-gradient)"/>
+                                <path d="M12 4L13.5 8.5L18 10.5L13.5 12.5L12 17L10.5 12.5L6 10.5L10.5 8.5L12 4Z" fill="url(#gemini-gradient2)"/>
+                                <defs>
+                                    <linearGradient id="gemini-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#4285F4;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#34A853;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#FBBC04;stop-opacity:1" />
+                                    </linearGradient>
+                                    <linearGradient id="gemini-gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#EA4335;stop-opacity:0.8" />
+                                        <stop offset="100%" style="stop-color:#FBBC04;stop-opacity:0.8" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">IA</h3>
+                        </div>
+                        <!-- Redes -->
+                        <div class="skill-card min-w-[200px] md:min-w-[250px] text-center p-6 bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-zinc-950 dark:to-zinc-900 rounded-xl hover:shadow-xl dark:hover:shadow-zinc-900/50 transition-all duration-300 transform hover:scale-110 mx-2 border border-indigo-100 dark:border-zinc-800">
+                            <i class="fas fa-network-wired text-6xl text-indigo-600 dark:text-indigo-400 mb-4"></i>
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Redes</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="py-24 bg-gray-50 dark:bg-zinc-950 transition-colors duration-300">
+        <div class="container mx-auto px-6 lg:px-12">
+            <!-- Título Mejorado -->
+            <div class="text-center mb-16">
+                <div class="inline-block mb-4">
+                    <span class="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
+                        Contacto
+                    </span>
+                </div>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+                <p class="text-gray-600 dark:text-gray-400 mt-4 text-lg">¡Hablemos! Estoy abierto a nuevas oportunidades</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Apartado de Correo -->
+                    <div class="bg-white dark:bg-zinc-900 rounded-2xl p-8 shadow-xl dark:shadow-zinc-900/50 hover:shadow-2xl dark:hover:shadow-zinc-900/70 transition-all duration-500 transform hover:-translate-y-2 border-2 border-gray-200 dark:border-zinc-800 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-200/30 to-purple-200/30 dark:from-blue-500/10 dark:to-purple-500/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center justify-center mb-6">
+                                <div class="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                    <i class="fas fa-envelope text-white text-3xl"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">Correo Electrónico</h3>
+                            <a href="mailto:hugo.ortz.04@gmail.com" class="block text-center text-lg text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors font-semibold break-all">
+                                hugo.ortz.04@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Redes Sociales -->
+                    <div class="bg-white dark:bg-zinc-900 rounded-2xl p-8 shadow-xl dark:shadow-zinc-900/50 hover:shadow-2xl dark:hover:shadow-zinc-900/70 transition-all duration-500 transform hover:-translate-y-2 border-2 border-gray-200 dark:border-zinc-800 relative overflow-hidden group">
+                        <div class="absolute bottom-0 left-0 w-32 h-32 bg-gradient-to-tr from-pink-200/30 to-purple-200/30 dark:from-pink-500/10 dark:to-purple-500/10 rounded-full blur-2xl translate-y-1/2 -translate-x-1/2 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center justify-center mb-6">
+                                <div class="w-20 h-20 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                    <i class="fas fa-share-alt text-white text-3xl"></i>
+                                </div>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Redes Sociales</h3>
+                            <div class="flex justify-center space-x-4">
+                                <a href="https://www.linkedin.com/in/hugopzz/" target="_blank" rel="noopener noreferrer" class="social-link w-16 h-16 rounded-full bg-blue-600 dark:bg-blue-500 flex items-center justify-center text-white hover:bg-blue-700 dark:hover:bg-blue-600 transform hover:scale-110 hover:rotate-3 transition-all duration-300 shadow-lg hover:shadow-xl" title="LinkedIn">
+                                    <i class="fab fa-linkedin-in text-2xl"></i>
+                                </a>
+                                <a href="https://github.com/HugoPzo/" target="_blank" rel="noopener noreferrer" class="social-link w-16 h-16 rounded-full bg-gray-800 dark:bg-zinc-900 flex items-center justify-center text-white hover:bg-gray-900 dark:hover:bg-zinc-800 transform hover:scale-110 hover:rotate-3 transition-all duration-300 border-2 border-gray-700 dark:border-zinc-800 shadow-lg hover:shadow-xl" title="GitHub">
+                                    <i class="fab fa-github text-2xl"></i>
+                                </a>
+                                <a href="https://www.instagram.com/hugo.pzz/" target="_blank" rel="noopener noreferrer" class="social-link w-16 h-16 rounded-full bg-gradient-to-br from-pink-500 via-pink-600 to-purple-600 dark:from-pink-500 dark:to-purple-500 flex items-center justify-center text-white hover:from-pink-600 hover:to-purple-700 dark:hover:from-pink-600 dark:hover:to-purple-600 transform hover:scale-110 hover:rotate-3 transition-all duration-300 shadow-lg hover:shadow-xl" title="Instagram">
+                                    <i class="fab fa-instagram text-2xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 dark:bg-black text-gray-300 dark:text-gray-400 py-8 transition-colors duration-300 border-t border-gray-700 dark:border-zinc-900">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; <span id="current-year"></span> Portafolio Hugo Perez Ortiz. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botón Scroll to Top -->
+    <button id="scroll-to-top" class="fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-500 dark:to-purple-500 text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 opacity-0 invisible">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
